@@ -11,6 +11,8 @@ router.route("/")
     .post(products.create)
     .delete(products.deleteAll);
 
+router.route("/sorting")
+    .get(products.sorting)
 
 router.route("/cart/:id")
     .put(cart.update)

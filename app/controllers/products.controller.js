@@ -37,6 +37,19 @@ exports.findAll = async (req, res, next) => {
         return res.send(documents);
 };
 
+exports.sorting = async (req, res, next) => {
+    try{
+        const productService = new ProductsService(MongoDB.client);       
+        documents = await productService.sortByPrice();
+        return res.send(documents); 
+    } catch (error) {
+        return next(
+            new ApiError(500, "An error occurred while retrieving products")
+        );
+    }
+       
+}
+
 exports.findOne = async (req, res, next) => {
     try{
         const productService = new ProductsService(MongoDB.client);

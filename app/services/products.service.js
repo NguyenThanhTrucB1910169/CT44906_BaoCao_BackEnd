@@ -50,6 +50,11 @@ class ProductsService {
     }
 
    
+    async sortByPrice(){
+        // const sort = await this.find({});
+        const sort = await this.Products.find({}).sort({"price":1})
+        return await sort.toArray();
+    }
 
     async update(id, payload){
         const filter = {
